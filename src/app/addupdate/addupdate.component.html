@@ -1,0 +1,27 @@
+<form #formref (ngSubmit)="submit()" class="w-50 mx-auto border p-5 mt-5 shadow" [formGroup]="propertyUpdate">
+  <h1 class="text-center">Add update</h1>
+  <label for="property">Property</label><br>
+  <div class="ms-5">
+    <label for="propertyAddress">PropertyAddress</label>
+    <input type="text" name="propertyAddress" class="form-control" formControlName="propertyAddress">
+    <div *ngIf="(propertyAddress.invalid && propertyAddress.touched)" class="text-danger">
+      <p *ngIf="propertyAddress.errors?.['required']">*This is required</p>
+    </div>
+    <label for="propertyType">PropertyType</label>
+    <input type="text" name="propertyType" class="form-control" formControlName="propertyType">
+    <div *ngIf="(propertyType.invalid && propertyType.touched)" class="text-danger">
+      <p *ngIf="propertyType.errors?.['required']">*This is required</p>
+    </div>
+    <label for="bhkType">bhkType</label>
+    <input type="text" name="bhkType" class="form-control" formControlName="bhkType">
+    <div *ngIf="(bhkType.invalid && bhkType.touched)" class="text-danger">
+      <p *ngIf="bhkType.errors?.['required']">*This is required</p>
+    </div>
+    <label for="rent">rent</label>
+    <input type="text" name="rent" class="form-control" formControlName="rent">
+    <div *ngIf="(rent.invalid && rent.touched)" class="text-danger">
+      <p *ngIf="rent.errors?.['required']">*This is required</p>
+    </div>
+  </div>
+  <button class="btn btn-success d-block mt-4 mx-auto" type="submit">Change</button>
+</form>

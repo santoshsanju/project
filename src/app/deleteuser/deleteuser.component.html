@@ -1,0 +1,9 @@
+<form #formref (ngSubmit)="delete()" class="w-50 mx-auto border p-5 mt-5 shadow" [formGroup]="deleteuser">
+  <h1 class="text-center">User Account Delete</h1>
+  <label for="password">Password</label>
+  <input type="password" name="password" class="form-control" formControlName="password">
+  <div *ngIf="(password.invalid && password.touched)" class="text-danger">
+    <p *ngIf="password.errors?.['required']">*This is required</p>
+  </div>
+  <button class="btn btn-success d-block mt-4 mx-auto" type="submit">Delete</button>
+</form>

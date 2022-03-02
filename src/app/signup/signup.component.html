@@ -1,0 +1,29 @@
+<form #formref (ngSubmit)="submit()" class="w-50 mx-auto border p-5 mt-5 shadow" [formGroup]="userRegistration">
+  <h1 class="text-center">User Registration</h1>
+  <label for="username">Username</label>
+  <input type="text" name="username" class="form-control" formControlName="username">
+  <div *ngIf="(username.invalid && username.touched)" class="text-danger">
+    <p *ngIf="username.errors?.['required']">*This is required</p>
+  </div>
+  <label for="password">Password</label>
+  <input type="password" name="password" class="form-control" formControlName="password">
+  <div *ngIf="(password.invalid && password.touched)" class="text-danger">
+    <p *ngIf="password.errors?.['required']">*This is required</p>
+  </div>
+  <label for="email">Email</label>
+  <input type="email" name="email" class="form-control" formControlName="email">
+  <div *ngIf="(email.invalid && email.touched)" class="text-danger">
+    <p *ngIf="email.errors?.['required']">*This is required</p>
+  </div>
+  <label for="phoneNo">Phoneno</label>
+  <input type="number" name="phoneNo" class="form-control" formControlName="phoneNo">
+  <div *ngIf="(phoneNo.invalid && phoneNo.touched)" class="text-danger">
+    <p *ngIf="phoneNo.errors?.['required']">*This is required</p>
+  </div>
+  <div class="mt-3">
+    <label for="photo">Upload photo</label>
+    <!-- name helps during backend multer storage -->
+    <input type="file" class="form-control"  name="photo" id="photo" #profile (input)="onFileSelect(profile.files[0])">
+  </div>
+  <button class="btn btn-success d-block mt-4 mx-auto" type="submit">Signup</button>
+</form>
